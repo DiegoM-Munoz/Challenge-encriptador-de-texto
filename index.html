@@ -21,17 +21,17 @@
             <div>
                 <img src="images/exclamation-circle-fill.svg" alt="exclamation-circle-fill">
                 <small>Solo letras minúsculas y sin acentos</small>
-                <button>Encriptar</button>
-                <button>Desencriptar</button>
+                <button id="des-encriptar" onclick="encriptarTexto()">Encriptar</button>
+                <button id="des-encriptar" onclick="desencriptarTexto()">Desencriptar</button>
             </div>
-            <div>
-                <button class="resultado-mensaje">
+            <div id="resultado">
+                <div id="resultado-mensaje">
                     <img src="images/icono-mensaje-no-encontrado.png" alt="Mensaje no encontrado">
                     <h1>Ningún mensaje fue encontrado</h1>
                     <p>Ingresa el texto que desees encriptar o desencriptar</p>
 
-                    <button class="copy-text" disabled>Copiar</button>
-                    
+                    <div id="copy-text" style="display: none;">Copiar</div>
+
                 </button>
             </div>
         </section>
@@ -41,5 +41,7 @@
     <footer>
 
     </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
