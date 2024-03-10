@@ -4,36 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/icono-encriptador.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+
     <title>Challenge - Encriptador de Texto</title>
 </head>
+
 <body>
     <header>
-        <h1><img src="images/logo-alura.png" alt="Logo alura"></h1>
+        <h1 ><img class="logo" src="images/logo-alura.png" alt="Logo alura"></h1>
 
     </header>
 
 
     <main>
-        <section>
-            <div>
-                <textarea name="texto-encriptar-desencriptar" id="des-encriptar" cols="50" rows="20" placeholder="Ingrese el texto a des-encriptar aquí"></textarea>
-            </div>
-            <div>
-                <img src="images/exclamation-circle-fill.svg" alt="exclamation-circle-fill">
-                <small>Solo letras minúsculas y sin acentos</small>
-                <button id="des-encriptar" onclick="encriptarTexto()">Encriptar</button>
-                <button id="des-encriptar" onclick="desencriptarTexto()">Desencriptar</button>
-            </div>
-            <div id="resultado">
-                <div id="resultado-mensaje">
-                    <img src="images/icono-mensaje-no-encontrado.png" alt="Mensaje no encontrado">
-                    <h1>Ningún mensaje fue encontrado</h1>
-                    <p>Ingresa el texto que desees encriptar o desencriptar</p>
+        <section class="encriptador-texto">
+            <div id="mensaje">
+                <textarea name="texto-encriptar-desencriptar" id="des-encriptar" placeholder="Ingrese el texto a des-encriptar aquí"></textarea>
+                </div>
+            <div id="resultado-mensaje">
+                <img src="images/icono-mensaje-no-encontrado.png" width="auto" height="250vw" alt="Mensaje no encontrado">
+                <h1>Ningún mensaje fue encontrado</h1>
+                <p>Ingresa el texto que desees encriptar o desencriptar</p>
 
-                    <div id="copy-text" style="display: none;">Copiar</div>
-
-                </button>
+                <div id="copy-text" style="display: none;">Copiar</div>
+                
             </div>
+            <div class="botones">
+                <div class="advertencia">
+                    <img src="images/exclamation-circle-fill.svg" class="icono-alerta" alt="exclamation-circle-fill">
+                    <small>Solo letras minúsculas y sin acentos</small>
+                </div>
+                <div class="caja-des-encriptar">
+                    <button class="des-encriptar" onclick="encriptarTexto()">Encriptar</button>
+                    <button class="des-encriptar" id="boton-des-encriptar" onclick="desencriptarTexto()">Desencriptar</button>
+                </div>
+            </div>
+        
         </section>
     </main>
 

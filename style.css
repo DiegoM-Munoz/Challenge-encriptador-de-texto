@@ -1,0 +1,123 @@
+body {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #DCF2F1;
+    color: #7FC7D9;
+}
+
+/*  HEADER */
+header{
+    display: flex;
+}
+.logo{
+    display: flex;
+    margin:10px;
+    grid-area: logo;
+}
+
+/* MAIN /*
+/* SECCIÓN DES-ENCRIPTAR */
+
+.encriptador-texto{
+    display: grid;
+    gap: 10px;
+    /* "grid-template-areas" permite definir la cuadrilla como se distribuira en el grid (Se debe asignar el nombre a cada elemento de la cuadrilla por medio de 'grid-area:') En caso de querer dejar un espacio vacío, se debe reemplazar el nombre del elemneto (header) por un '.' | NO SE PUEDE UNIR TODO EL CONTENIDO DEL BODY (<header> + <body> + <footer>) EN UNA SOLA CUADRILLA */
+    grid-template-areas: 
+    ".  mensaje resultado"
+    ".  botones .";
+    /* "grid-template-columns" define el ancho de las columnas */
+    grid-template-columns: 120px   auto   auto;
+    /* "grid-template-rows" define el alto de las filas */
+    grid-template-rows: auto;
+}
+
+.encriptador-texto > *{
+    border: solid #365486 2px;
+    border-radius: 40px;
+}
+
+#mensaje{
+    display: flex;
+    width: 45vw;
+    height: 48vw;
+    flex-direction: column;
+    grid-area: mensaje;
+}
+
+#des-encriptar{
+    display: flex;
+    width: auto;
+    background: none;
+    border: none;
+    font-weight: bold;
+    padding: 1em;
+    resize: none;
+    height: 40vw;
+    font-size: 1.2em;
+    outline: none;
+    color: #365486;
+}
+
+#des-encriptar::placeholder{
+    color: #7FC7D9;
+} 
+
+#resultado-mensaje{
+    display: flex;
+    grid-area: resultado;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    color: #365486;
+    width: 25vw;
+    height: auto;
+    font-size: 1.2em;
+    box-shadow: 5px 5px 5px 3px #CEE0D6;
+}
+
+.botones{
+    border: none;
+    grid-area: botones;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.advertencia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.icono-alerta {
+    width: 1em;
+    padding: 0.5em;
+    border: 5px;
+}
+
+.caja-des-encriptar{
+    display: flex;
+    justify-content: space-evenly;
+    width: auto;
+    width: 35vw;
+}
+
+.des-encriptar{
+    font-family: "Madimi One", sans-serif;
+    background-color: #365486;
+    color: #DCF2F1;
+    border: solid #365486 1px;
+    border-radius: 10px;
+    width: 200px;
+    height: 45px;
+    font-weight: lighter;
+}
+
+#boton-des-encriptar{
+    color: #7FC7D9;
+    background-color: #DCF2F1;
+    border: solid #7FC7D9 1px;
+}
