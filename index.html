@@ -20,7 +20,7 @@
 
 
     <main>
-        <section class="encriptador-texto">
+        <section class="encriptador-texto"  id="seccionEncriptar">
             <div id="mensaje">
                 <textarea name="texto-encriptar-desencriptar" id="des-encriptar" placeholder="Ingrese el texto a des-encriptar aquí"></textarea>
                 </div>
@@ -28,9 +28,6 @@
                 <img src="images/icono-mensaje-no-encontrado.png" width="auto" height="250vw" alt="Mensaje no encontrado">
                 <h1>Ningún mensaje fue encontrado</h1>
                 <p>Ingresa el texto que desees encriptar o desencriptar</p>
-
-                <div id="copy-text" style="display: none;">Copiar</div>
-                
             </div>
             <div class="botones">
                 <div class="advertencia">
@@ -42,7 +39,8 @@
                     <button class="des-encriptar" id="boton-des-encriptar" onclick="desencriptarTexto()">Desencriptar</button>
                 </div>
             </div>
-        
+            <!-- NOTIFICACIÓN DE MENSAJE COPIADO -->
+            <div id="copy-message" class="copy-message-hidden">¡Mensaje copiado!</div>
         </section>
     </main>
 

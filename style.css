@@ -25,7 +25,7 @@ header{
     /* "grid-template-areas" permite definir la cuadrilla como se distribuira en el grid (Se debe asignar el nombre a cada elemento de la cuadrilla por medio de 'grid-area:') En caso de querer dejar un espacio vacío, se debe reemplazar el nombre del elemneto (header) por un '.' | NO SE PUEDE UNIR TODO EL CONTENIDO DEL BODY (<header> + <body> + <footer>) EN UNA SOLA CUADRILLA */
     grid-template-areas: 
     ".  mensaje resultado"
-    ".  botones .";
+    ".  botones copiar-btn";
     /* "grid-template-columns" define el ancho de las columnas */
     grid-template-columns: 120px   auto   auto;
     /* "grid-template-rows" define el alto de las filas */
@@ -68,13 +68,15 @@ header{
     grid-area: resultado;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
     padding: 20px;
+    background-color: #FFFFFF;
+    border: #7FC7D9;
     color: #365486;
     width: 25vw;
     height: auto;
     font-size: 1.2em;
     box-shadow: 5px 5px 5px 3px #CEE0D6;
+    justify-content: space-between;
 }
 
 .botones{
@@ -114,10 +116,67 @@ header{
     width: 200px;
     height: 45px;
     font-weight: lighter;
+    transition: .5s;
+}
+.des-encriptar:hover{
+    cursor: pointer;
+    scale: 1.1;
 }
 
 #boton-des-encriptar{
     color: #7FC7D9;
     background-color: #DCF2F1;
     border: solid #7FC7D9 1px;
+    transition: 0.5s;
+}
+#boton-des-encriptar:hover{
+    cursor: pointer;
+    color: #365486;
+    background-color: #7FC7D9;
+    border: solid #365486 1px;
+    scale: 1.05;
+}
+
+.copiar-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #365486;
+    border: solid #365486 1px;
+    border-radius: 10px;
+    width: 25vw;
+    height: 45px;
+    font-weight: lighter;
+    transition: .5s;
+    grid-area: copiar-btn;
+    position: relative;
+    bottom: 10vw;
+    left: 1.2em;
+}
+.copiar-btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #DCF2F1;
+}
+
+.copy-message-hidden{
+    display: flex;
+    background-color: #FFFFFF; /* Green background color */
+    color: #365486;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 2em;
+    width: 25vw;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%); /* Center vertically */
+    z-index: 999; /* Ensure it appears above other elements */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in/out animation */
+    grid-area: copiar-btn;
+}
+
+.copy-message-hidden.show{
+    opacity: 1; /* Show the notification when the class is added */
 }

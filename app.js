@@ -1,5 +1,5 @@
 const textoDesEncriptar = document.querySelector("#des-encriptar");
-const textoResultado = document.querySelector("#resultado-mensaje")
+const textoResultado = document.querySelector("#resultado-mensaje");
 
 let matriz_code = [
     // En esta matriz, la columna de las vocales corresponde a la posición 0 y los codigos a la posición 1
@@ -13,6 +13,7 @@ let matriz_code = [
 function encriptarTexto(){
     const texto = encriptar(textoDesEncriptar.value);
     textoResultado.innerHTML = texto;
+    crearBoton()
 }
 
 function encriptar(fraseEncriptada){
@@ -42,4 +43,51 @@ function desencriptar(fraseEncriptada){
         }
     }
     return fraseEncriptada;
+}
+
+function crearBoton() {
+    // Create the element
+    let crearCopiarBtn = document.createElement("div");
+    // Add attributes
+    crearCopiarBtn.setAttribute("id", "copy-text"); // Set ID attribute
+    crearCopiarBtn.setAttribute("class", "copiar-btn"); // Set class attribute
+    crearCopiarBtn.setAttribute("onclick", "copiarTexto()"); // Set eventListener attribute
+    crearCopiarBtn.textContent = "Copiar"; // Add text content 
+    // Crea el boton dentro del "resultado-mensaje"
+    document.getElementById("seccionEncriptar").appendChild(crearCopiarBtn);
+}
+
+function copiarTexto() {
+    // Get the element (optional, assuming it already exists)
+    const resultadoMensaje = document.getElementById("resultado-mensaje");
+    // Extract the desired text content
+    const textToCopy = resultadoMensaje.textContent;
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+            console.log(`Texto copiado al portapapeles: ${textToCopy}`);
+            })
+            .catch((err) => {
+            console.error("Error al copiar texto:", err);
+            });
+        } else {
+        // Fallback for older browsers (use a temporary element)
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        textArea.remove();
+        console.log("Texto copiado al portapapeles (método alternativo)");
+        }
+
+    // JS para Notificación de Mensaje copiado (Debe estar creado en HTML y depende del CSS)
+    // Show toast notification
+    const copyMessage = document.getElementById("copy-message");
+    copyMessage.classList.add("show"); // Add class to show the notification
+
+    setTimeout(() => {
+        copyMessage.classList.remove("show"); // Remove class to hide after a timeout
+    }, 1000); // Hide the notification after 1 seconds
 }
