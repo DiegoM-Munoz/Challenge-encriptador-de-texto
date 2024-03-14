@@ -13,7 +13,6 @@ header{
 .logo{
     display: flex;
     margin:10px;
-    grid-area: logo;
 }
 
 /* MAIN /*
@@ -61,6 +60,9 @@ header{
 
 #des-encriptar::placeholder{
     color: #7FC7D9;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 } 
 
 #resultado-mensaje{
@@ -179,4 +181,86 @@ header{
 
 .copy-message-hidden.show{
     opacity: 1; /* Show the notification when the class is added */
+}
+
+@media (max-width: 1025px) {
+    .encriptador-texto{
+        display: grid;
+        gap: 20px;
+        grid-template-areas: 
+        "mensaje"
+        "botones"
+        "resultado"
+        "copiar-btn";
+        grid-template-columns: 90vw;
+        grid-template-rows: auto    auto    auto    auto;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    #mensaje{
+        height: 55vw;
+    }
+
+    #mensaje, #resultado-mensaje, .botones, .copiar-btn,.copy-message-hidden, .caja-des-encriptar{
+        width: 80vw;
+    }
+
+    #resultado-mensaje img{
+        display: none;
+    }
+
+    .des-encriptar{
+        width: 35vw;
+        font-size: 1.5em;
+    }
+
+    .copiar-btn{
+        display: none;
+    }
+}
+
+@media (max-width: 430px) {
+    .encriptador-texto{
+        display: grid;
+        gap: 20px;
+        grid-template-areas: 
+        "mensaje"
+        "botones"
+        "resultado"
+        "copiar-btn";
+        grid-template-columns: 90vw;
+        grid-template-rows: auto    auto    auto    auto;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    #mensaje{
+        height: 55vw;
+    }
+
+    #mensaje, #resultado-mensaje, .botones, .copiar-btn,.copy-message-hidden, .caja-des-encriptar{
+        width: 80vw;
+    }
+
+    #resultado-mensaje img{
+        display: none;
+    }
+
+    .caja-des-encriptar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 30vw;
+    }
+
+
+    .des-encriptar{
+        width: 35vw;
+        font-size: 1.5em;
+    }
+
+    .copiar-btn{
+        display: none;
+    }
 }

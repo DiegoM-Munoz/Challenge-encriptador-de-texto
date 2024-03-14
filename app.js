@@ -91,3 +91,26 @@ function copiarTexto() {
         copyMessage.classList.remove("show"); // Remove class to hide after a timeout
     }, 1000); // Hide the notification after 1 seconds
 }
+
+function copyTouchDevices() {
+    // Example for triggering on a button's touchend event:
+    const copyButton = document.getElementById("copy-text");
+    copyButton.addEventListener("touchend", copiarTexto);
+
+    // Example for simulating a long press (if needed):
+    copyButton.addEventListener("touchstart", () => {
+        let isLongPress = false;
+        const timeout = setTimeout(() => {
+            isLongPress = true;
+            copiarTexto(); // Call the function if held for a certain duration
+        }, 500); // Adjust the timeout duration as needed
+
+        copyButton.addEventListener("touchend", () => {
+
+            clearTimeout(timeout);
+            if (!isLongPress) {
+            // Handle regular tap behavior if a long press wasn't triggered
+            }
+        });
+    });
+}
